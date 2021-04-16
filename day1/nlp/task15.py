@@ -19,7 +19,7 @@ def tfidf(term,doc):
     array = []
     t_num =-1
     d_num =-1
-    array = np.zeros((3,3))
+    array = np.zeros((len(term),len(doc)))
     for t in term:
         t_num += 1
         d_num = -1
