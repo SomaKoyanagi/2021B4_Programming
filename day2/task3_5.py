@@ -9,18 +9,12 @@ class SoftmaxCrossEntropy:
         self.t = None
 
     def forward(self,x,t):
-        xmax = np.max(x)
-        a1 = np.exp(x-xmax)
-        a2 = np.sum(a1)
-        self.y = a1/a2
-        self.y = self.y.reshape(1,self.y.size)
+        self.y =  np.exp(x) / np.sum(np.exp(x), axis = 1)
         self.t = t
-        self.t = self.t.reshape(1,self.t.size)
-        N = self.y.shape[0]
-        return np.sum(self.t*-np.log(self.y[np.arange(N)]))/N
+        return  -np.sum(self.t * np.log(self.y))/len(x)
 
     def backprop(self):
-        dx = self.y-self.t
+        dx = self.y - self.t
         return dx
 
 out = SoftmaxCrossEntropy()
