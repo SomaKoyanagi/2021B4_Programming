@@ -4,7 +4,7 @@ a = 2
 b = 3
 c = 4
 
-class Multiply():
+class Multiply:
     def __init__(self):
         self.x = None
         self.y = None
@@ -22,7 +22,7 @@ class Multiply():
         return dx, dy
 
 
-class Add():
+class Add:
     def __init__(self):
         self.x = None
         self.y = None
